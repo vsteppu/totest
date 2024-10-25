@@ -19,8 +19,9 @@ const checkBrowser = () => {
       device.value = `It's Android`
       //window.open('https://search-for-jobs.netlify.app', '_blank');
       //window.location.replace('https://search-for-jobs.netlify.app/')
+      //window.location.href = window.location.protocol + '//' + window.location.host;
       //window.location.href = `intent:${window.location.host}#Intent;end`;
-      window.location.href = window.location.protocol + '//' + window.location.host;
+      window.location.href = `intent:https://totestforme.netlify.app/#Intent;end`;
     }
   } else {
     device.value = `It's windows`
