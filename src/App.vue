@@ -7,11 +7,12 @@ const device =ref('')
 const instagram =ref('') 
 
 const checkBrowser = () => {
-  const checkInstagram = isInstagramBrowser()
-  instagram.value = checkInstagram
-  if (checkInstagram) {
-    const ua = navigator.userAgent
-    console.log(ua)
+  const isInstagram = isInstagramBrowser()
+  const ua = navigator.userAgent
+  console.log(ua)
+  console.log(isInstagram)
+  instagram.value = isInstagram
+  if (isInstagram) {
     if (/iPad|iPhone|iPod/.test(ua)) {
       device.value = `It's Apple`
       window.location.href = redirectUrl;
@@ -33,5 +34,5 @@ const checkBrowser = () => {
 <template>
   <div>{{ 'Device: ' + device }}</div>
   <div>{{ 'Is Instagram: ' + instagram }}</div>
-  <button @click="checkBrowser">Verify</button>
+  <button @click="checkBrowser()">Verify</button>
 </template>
