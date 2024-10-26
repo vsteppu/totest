@@ -5,11 +5,11 @@ import { isInstagramBrowser } from './utils/utils';
 const device = ref('');
 const instagram = ref(false);
 
+/* 
 // Your actual URL
 const currentUrl = window.location.href;
 // Remove any 'intent://' if present
 const cleanUrl = currentUrl.replace('intent://', 'https://');
-
 const handleRedirect = () => {
   const isInstagram = isInstagramBrowser();
   const userAgent = navigator.userAgent;
@@ -56,8 +56,26 @@ const handleRedirect = () => {
     console.log('Not Instagram browser, no redirect needed');
   }
 };
+ */
 
-// Auto-redirect on mount
+// Your pre-generated appopener link
+const smartLink = 'https://appopener.com/web/erain1g2o'; // Replace with your link
+const directUrl = 'https://search-for-jobs.netlify.app'; // Your actual website URL
+
+const handleRedirect = () => {
+    const isInstagram = isInstagramBrowser();
+    instagram.value = isInstagram;
+    
+    if (isInstagram) {
+        // Use the pre-generated appopener link when in Instagram
+        window.location.href = smartLink;
+    } else {
+        // Direct URL for non-Instagram browsers
+        window.location.href = directUrl;
+    }
+};
+
+
 onMounted(() => {
   handleRedirect();
 });
