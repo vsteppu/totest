@@ -11,7 +11,7 @@ const results = [
         name:'victor',
         id: 2345
     },
-    //undefined,
+    undefined,
     {
         name:'dana',
         id: 231
