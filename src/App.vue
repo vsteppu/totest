@@ -17,7 +17,7 @@ const detectDevice = () => {
 };
 
 onMounted(() => {
-  if(isSocialMediaBrowser.value == isInstagram){
+  if(ua.includes('instagram')){
     window.open(link, '_system')
   }
   
