@@ -1,40 +1,50 @@
 <script setup>
-import { ref } from 'vue';
-import { results } from '../src/utils/api-for-test';
+import { isSocialMediaAppBrowser } from './utils/utils';
+import { onMounted, ref } from 'vue';
 
-const sum = ref(0)
+const isSocialMediaBrowser = ref(isSocialMediaAppBrowser());
 
-const isDisabled = ref(false)
+const detectDevice = () => {
+  const ua = navigator.userAgent.toLowerCase();
+  const isAndroid = ua.includes('android')
+  const isIPhone = ua.includes('iphone')
+  const isWindows = ua.includes('windows')
 
-const add = () => {
-    isDisabled.value=true
-sum.value += 1
-}
+  if (isIPhone) return 'iPhone';
+  if (isAndroid) return 'Android';
+  if (isWindows) return 'Windows';
+};
 
+onMounted(() => {
+  console.log(isSocialMediaBrowser.value);
+});
 </script>
 
+
 <template>
+  <p>
+  Is Social Browser - {{ isSocialMediaBrowser }}
+  </p>
+  <p>
+  Device - {{ detectDevice() }}
+  </p>
 
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-  <!-- Check if `results` is an array and has items before looping -->
-  <div v-if="Array.isArray(results) && results.length">
-    <div v-for="data in results" :key="data?.id">
-      <div v-if="data && data.id === undefined">
-        Everything is ok
+
+  <div>
+<!--     <transition
+    enter-active-class="ease-in-out duration-200"
+    enter-from-class="opacity-0"
+    enter-to-class="opacity-100"
+    
+    leave-active-class="ease-in-out duration-200"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0"
+      
+      mode="out-in"
+      >
+      <div class="h-full bg-gray-300">
       </div>
-      <div v-else-if="data && data.id === null">
-        Some error occurred
-      </div>
-      <div v-else>
-        Data ID: {{ data?.id || 'No ID' }}
-      </div>
-    </div>
-  </div>
-  <div v-else>
-    Loading or no data available
-  </div>
-
-
-
+    </transition> -->
+</div>
 </template>
