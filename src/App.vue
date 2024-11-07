@@ -17,6 +17,10 @@ const detectDevice = () => {
 };
 
 onMounted(() => {
+  if(isSocialMediaBrowser.value == isInstagram){
+    window.open(link, '_system')
+  }
+  
   console.log(isSocialMediaBrowser.value);
 });
 </script>
@@ -28,7 +32,7 @@ onMounted(() => {
   Device - {{ detectDevice() }} <br>
   User Agent - {{ ua }} <br>
   </p>
-  
+
   <div>
 <!--     <transition
     enter-active-class="ease-in-out duration-200"
