@@ -7,20 +7,20 @@ const ua = navigator.userAgent.toLowerCase();
 
 const detectDevice = () => {
   const ua = navigator.userAgent.toLowerCase();
+  const isChrome = ua.includes('chrome')
   const isAndroid = ua.includes('android')
   const isIPhone = ua.includes('iphone')
   const isWindows = ua.includes('windows')
 
+  if (isChrome){
+    
+  }
   if (isIPhone) return 'iPhone';
   if (isAndroid) return 'Android';
   if (isWindows) return 'Windows';
 };
 
 onMounted(() => {
-  if(ua.includes('instagram')){
-    window.open(link, '_system')
-  }
-  
   console.log(isSocialMediaBrowser.value);
 });
 </script>
