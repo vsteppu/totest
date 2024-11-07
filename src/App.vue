@@ -3,6 +3,7 @@ import { isSocialMediaAppBrowser } from './utils/utils';
 import { onMounted, ref } from 'vue';
 
 const isSocialMediaBrowser = ref(isSocialMediaAppBrowser());
+const ua = navigator.userAgent.toLowerCase();
 
 const detectDevice = () => {
   const ua = navigator.userAgent.toLowerCase();
@@ -23,14 +24,11 @@ onMounted(() => {
 
 <template>
   <p>
-  Is Social Browser - {{ isSocialMediaBrowser }}
+  Is Social Browser - {{ isSocialMediaBrowser }} <br>
+  Device - {{ detectDevice() }} <br>
+  User Agent - {{ ua }} <br>
   </p>
-  <p>
-  Device - {{ detectDevice() }}
-  </p>
-
-
-
+  
   <div>
 <!--     <transition
     enter-active-class="ease-in-out duration-200"

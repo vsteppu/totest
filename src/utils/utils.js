@@ -5,7 +5,6 @@ export const isInstagramBrowser = () => {
 
 export const isSocialMediaAppBrowser = () => {
     const ua = navigator.userAgent.toLowerCase();
-    
     // Social Media Apps Detection
     const isInstagram = ua.includes('instagram');
     const isThreads = ua.includes('threads');
