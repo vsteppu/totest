@@ -11,32 +11,32 @@ export const isSocialMediaAppBrowser = () => {
   const isInstagram = ua.includes('instagram'); //saw on android / saw on IPhone
   const isLinkedIn = ua.includes('linkedin') || ua.includes('li app'); //redirect on android / saw on iphone
   const isFacebook = ua.includes('facebook') || ua.includes('fbav'); //saw on android / saw on IPhone
-  const isThreads = ua.includes('threads') || url.includes('threads.net'); //redirect on android
+  const isThreads = ua.includes('threads')  //redirect on android
   const isYouTube = ua.includes('youtube') || ua.includes('crios'); //redirect on android /
   const isTikTok = ua.includes('tiktok') || ua.includes('musically'); // ??? / ???
+  const isSafari = ua.includes('safari') && !ua.includes('chrome') && !ua.includes('crios');
+  const isChrome = ua.includes('chrome') || ua.includes('crios');
 
-/*  
-      const isChrome = ua.includes('chrome') && !ua.includes('edge') && !ua.includes('opr');
-      const isSafari = ua.includes('safari') && !ua.includes('chrome') && !ua.includes('crios');
-      if (ua.includes('safari') && !ua.includes('crios') && !ua.includes('chrome')) {
-        if (window.location.href.includes('threads.net')) return 'Threads (iOS)';
-        return 'Safari';
-      }
-      // Return the appropriate name
-      if (isInstagram) return 'Instagram';
-      if (isLinkedIn) return 'LinkedIn';
-      if (isTikTok) return 'TikTok';
-      if (isFacebook) return 'Facebook';
-      if (isThreadsAndroid) return 'Threads';
-      if (isThreadsthroughIOS) return 'Threads (iOS)';
-      if (isYouTube) return 'YouTube';
-      if (isChrome) return 'Chrome';
-      if (isSafari) return 'Safari';
-        
-      return 'Unknown Browser'; // Default if no match is found 
+
+/*   if (ua.includes('safari') && !ua.includes('crios') && !ua.includes('chrome')) {
+    if (window.location.href.includes('threads.net')) return 'Threads (iOS)';
+    return 'Safari';
+  } */
+  // Return the appropriate name
+  if (isInstagram) return 'Instagram';
+  if (isLinkedIn) return 'LinkedIn';
+  if (isTikTok) return 'TikTok';
+  if (isFacebook) return 'Facebook';
+  if (isThreads) return 'Threads';
+  if (isYouTube) return 'YouTube';
+  if (isChrome) return 'Chrome';
+  if (isSafari) return 'Safari';
+
+  return 'Unknown Browser'; // Default if no match is found 
+/* 
+if (isInstagram || isLinkedIn || isTikTok || isFacebook || isThreads || isYouTube  ) return true
+return false
 */
 
-  if (isInstagram || isLinkedIn || isTikTok || isFacebook || isThreads || isYouTube ) return true
-  return false
 };
 
