@@ -31,12 +31,18 @@ onMounted(() => {
 
 
 <template>
-  <p>
+  <p class="ml-4 mt-4">
     Is Social Browser - {{ isSocialMediaBrowser }} <br>
     Device - {{ detectDevice() }} <br>
     User Agent - {{ ua }} <br>
   </p>
-  <div>
+  <div v-if="isSocialMediaBrowser" class=" flex items-center ml-4 my-4 p-3 h-20 w-96 bg-teal-400">
+    If True
+  </div>
+  <div v-if="!isSocialMediaBrowser" class=" flex items-center ml-4 my-4 p-3 h-20 w-96 bg-red-400">
+    If false
+  </div>
+  <div class="hidden">
     <button @click="show=!show" class=" bg-gray-400 mt-9 p-3 m-4 ">push</button>
     <transition 
       enter-active-class="ease-in duration-[0.3s] transform"
