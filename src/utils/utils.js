@@ -5,16 +5,19 @@ export const isInstagramBrowser = () => {
 
 export const isSocialMediaAppBrowser = () => {
     const ua = navigator.userAgent.toLowerCase().trim();
+    const url = window.location.href;
+
     // Social Media Apps Detection
     const isInstagram = ua.includes('instagram'); //saw on android / saw on IPhone
     const isLinkedIn = ua.includes('linkedin') || ua.includes('li app'); //redirect on android / saw on iphone
     const isFacebook = ua.includes('facebook') || ua.includes('fbav'); //saw on android / saw on IPhone
-    const isThreads = ua.includes('threads'); //redirect on android / ???
-    const isThreadsthroughIOS = ua.includes('threads') || window.location.href.includes('threads.net'); //redirect on android / ???
+    const isThreadsAndroid = ua.includes('threads'); //redirect on android / ???
+    const isThreadsthroughIOS = !isThreadsAndroid && url.includes('threads.net');
     const isYouTube = ua.includes('youtube') || ua.includes('crios'); //redirect on android / ???
     const isTikTok = ua.includes('tiktok') || ua.includes('musically'); // ??? / ???
     const isChrome = ua.includes('chrome') && !ua.includes('edge') && !ua.includes('opr');
-    const isSafari = ua.includes('Safari');
+    const isSafari = ua.includes('safari') && !ua.includes('chrome') && !ua.includes('crios');
+
     
     /* if (ua.includes('safari') && !ua.includes('crios') && !ua.includes('chrome')) {
       // Potential Threads workaround for iOS if threads-specific user agent is missing
@@ -27,7 +30,7 @@ export const isSocialMediaAppBrowser = () => {
     if (isLinkedIn) return 'LinkedIn';
     if (isTikTok) return 'TikTok';
     if (isFacebook) return 'Facebook';
-    if (isThreads) return 'Threads';
+    if (isThreadsAndroid) return 'Threads';
     if (isThreadsthroughIOS) return 'Threads (iOS)';
     if (isYouTube) return 'YouTube';
     if (isChrome) return 'Chrome';

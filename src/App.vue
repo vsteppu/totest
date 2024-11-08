@@ -13,10 +13,12 @@ const detectDevice = () => {
   const isAndroid = ua.includes('android')
   const isIPhone = ua.includes('iphone')
   const isWindows = ua.includes('windows')
+  const isSafari = ua.includes('Safari');
 
   if (isChrome) {
 
   }
+  if (isSafari) return 'isSafari';
   if (isIPhone) return 'iPhone';
   if (isAndroid) return 'Android';
   if (isWindows) return 'Windows';
