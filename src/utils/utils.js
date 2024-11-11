@@ -8,14 +8,12 @@ export const isSocialMediaAppBrowser = () => {
   const url = window.location.href;
 
   // Social Media Apps Detection
-  const isInstagram = ua.includes('instagram'); //saw on android / saw on IPhone
-  const isLinkedIn = ua.includes('linkedin') || ua.includes('li app'); //redirect on android / saw on iphone
-  const isFacebook = ua.includes('facebook') || ua.includes('fbav'); //saw on android / saw on IPhone
-  const isThreads = ua.includes('threads')  //redirect on android
-  const isYouTube = ua.includes('youtube') || ua.includes('crios'); //redirect on android /
-  const isTikTok = ua.includes('tiktok') || ua.includes('musically'); // ??? / ???
-  const isSafari = ua.includes('safari') && !ua.includes('chrome') && !ua.includes('crios');
-  const isChrome = ua.includes('chrome') || ua.includes('crios');
+  const isInstagram = ua.includes('instagram');
+  const isThreads = ua.includes('barcelona');
+  const isLinkedIn = ua.includes('linkedin') || ua.includes('li app');
+  const isFacebook = ua.includes('facebook') || ua.includes('fbav') || ua.includes('fban')|| ua.includes('fbios')|| ua.includes('fbop')|| ua.includes('fbdv')|| ua.includes('fbmd') || ua.includes('fbmd');
+  const isYouTube = ua.includes('youtube') ||ua.includes('YouTube')|| ua.includes('crios') || ua.includes('com.google.android.youtube') || ua.includes('youtubeapp') ;
+  const isTikTok = ua.includes('tiktok') || ua.includes('musically') || ua.includes('bytedancewebview') || ua.includes('musical_ly') || ua.includes('falcontag');
 
 
 /*   if (ua.includes('safari') && !ua.includes('crios') && !ua.includes('chrome')) {
@@ -29,8 +27,7 @@ export const isSocialMediaAppBrowser = () => {
   if (isFacebook) return 'Facebook';
   if (isThreads) return 'Threads';
   if (isYouTube) return 'YouTube';
-  if (isChrome) return 'Chrome';
-  if (isSafari) return 'Safari';
+
 
   return 'Unknown Browser'; // Default if no match is found 
 /* 
@@ -39,4 +36,3 @@ return false
 */
 
 };
-

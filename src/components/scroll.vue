@@ -1,15 +1,10 @@
-<script setup>
-import { defineProps, defineEmits } from 'vue';
-
-const emit = defineEmits(['select','save'])
-const props = defineProps(['jobList'])
-
-</script>
-
 <template>
-  <p v-for="(job, index) in props.jobList" :key="index">
-    {{ job.jobTitle }}
-    <p @click="emit('select', job)">Show details</p>
-    <button @click.stop="emit('save', job)">Add</button>
-  </p>
+<div class=" w-[70px]  h-full bg-red-300 ">
+  sidebar
+<!--   <div class="bg-gray-100 w-[30px] h-56 ml-2">1</div>
+  <div class="bg-gray-300 w-[30px] h-56 ml-2">1</div>
+  <div class="bg-gray-100 w-[30px] h-56 ml-2">1</div>
+  <div class="bg-gray-300 w-[30px] h-56 ml-2">1</div>
+  <div class="bg-gray-100 w-[30px] h-56 ml-2">1</div> -->
+</div>
 </template>
