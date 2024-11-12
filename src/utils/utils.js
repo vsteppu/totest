@@ -5,34 +5,36 @@
 
 export const isSocialMediaAppBrowser = () => {
   const ua = navigator.userAgent.toLowerCase().trim();
-  const url = window.location.href;
 
   // Social Media Apps Detection
-  const isInstagram = ua.includes('instagram');
-  const isThreads = ua.includes('barcelona');
-  const isLinkedIn = ua.includes('linkedin') || ua.includes('li app');
-  const isFacebook = ua.includes('facebook') || ua.includes('fbav') || ua.includes('fban')|| ua.includes('fbios')|| ua.includes('fbop')|| ua.includes('fbdv')|| ua.includes('fbmd') || ua.includes('fbmd');
-  const isYouTube = ua.includes('youtube') ||ua.includes('YouTube')|| ua.includes('crios') || ua.includes('com.google.android.youtube') || ua.includes('youtubeapp') ;
-  const isTikTok = ua.includes('tiktok') || ua.includes('musically') || ua.includes('bytedancewebview') || ua.includes('musical_ly') || ua.includes('falcontag');
+  const REDIRECT_FROM_SN = [ 
+    'instagram',
+    'barcelona',
+    'linkedin',
+    'li app',
+    'facebook',
+    'fbav',
+    'fban',
+    'fbios',
+    'fbop',
+    'fbdv',
+    'fbmd',
+    'youtube',
+    'YouTube',
+    'crios',
+    'com.google.android.youtube',
+    'youtubeapp',
+    'tiktok',
+    'musically',
+    'bytedancewebview',
+    'musical_ly',
+    'falcontag'
+  ]
 
-
-/*   if (ua.includes('safari') && !ua.includes('crios') && !ua.includes('chrome')) {
-    if (window.location.href.includes('threads.net')) return 'Threads (iOS)';
-    return 'Safari';
-  } */
-  // Return the appropriate name
-  if (isInstagram) return 'Instagram';
-  if (isLinkedIn) return 'LinkedIn';
-  if (isTikTok) return 'TikTok';
-  if (isFacebook) return 'Facebook';
-  if (isThreads) return 'Threads';
-  if (isYouTube) return 'YouTube';
-
-
-  return 'Unknown Browser'; // Default if no match is found 
+  return REDIRECT_FROM_SN.filter(sn => ua.includes(sn)).length > 0;
+  //return 'Unknown Browser'; // Default if no match is found 
 /* 
 if (isInstagram || isLinkedIn || isTikTok || isFacebook || isThreads || isYouTube  ) return true
 return false
 */
-
 };
